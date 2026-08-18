@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cinzel: 'Cinzel', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg-primary: #090807;
+  --text-primary: #f5f5f4;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Sacred Glassmorphic Card Styling */
+@layer components {
+  .vedic-card {
+    @apply bg-stone-900/90 border border-stone-800/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300;
+  }
+  
+  .vedic-button-primary {
+    @apply bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-stone-950 font-semibold px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all duration-200 shadow-lg shadow-amber-950/40 active:scale-95;
+  }
+
+  .vedic-button-secondary {
+    @apply bg-stone-900/90 hover:bg-stone-800 text-stone-300 border border-stone-800 px-5 py-2.5 rounded-full text-xs font-medium tracking-wider transition-all active:scale-95;
+  }
+}
+
+/* Smooth Fade In Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
